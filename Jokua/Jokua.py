@@ -73,7 +73,7 @@ while True:
     tiempo_transcurrido = tiempo_actual - tiempo_inicial
 
     # Aumentar la puntuación en 1.3 puntos por cada segundo transcurrido
-    puntuacion = int(tiempo_transcurrido * 1.3)
+    puntuacion = int(tiempo_transcurrido * 2.4)
 
     # Dibuja todo en la ventana
     ventana.fill((0, 0, 0))

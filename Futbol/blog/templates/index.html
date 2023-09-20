@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nire Django Blog</title>
+    <link rel="stylesheet" href='{% static "css/blog.css" %}'>
+</head>
+<body>
+    <center><h1>Kaixo Django blog</h1></center>
+    <br><br>
+    <h3>Post guztiak bistaratu</h3>
+    {% for post in posta %}
+    <div>
+        <p><h2>{{post.izenburua}}</h2></p>
+        <p>{{post.edukia}}</p>
+    </div>
+    {% endfor %}
+
+    <a href = "/add">Gehitu Posta!</a>
+
+
+
+</body>
+</html>
