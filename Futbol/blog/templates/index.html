@@ -12,15 +12,29 @@
     <center><h1>Kaixo Django blog</h1></center>
     <br><br>
     <h3>Post guztiak bistaratu</h3>
-    {% for post in posta %}
-    <div>
-        <p><h2>{{post.izenburua}}</h2></p>
-        <p>{{post.edukia}}</p>
-    </div>
-    {% endfor %}
+    <br><br>
+    <table align="center" border="1">
+        {% for post in posta %}
+        <tr>
+            <td>
+                <div>
+                    <p>{{post.id}}</p>
+                    <p><h2>{{post.izenburua}}</h2></p>
+                    <p>{{post.edukia}}</p>
+                    <p>{{post.noizsortua}}</p>                 
+                </div>
+            </td>
+            <td>
+                <a href="ezabatu/{{post.id}}" color="red">Ezabatu</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+            
 
+    <br><br>
     <a href = "/add">Gehitu Posta!</a>
-
+    <br><br>
 
 
 </body>
