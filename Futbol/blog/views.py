@@ -18,3 +18,26 @@ def addpost(request):
     postberria.save()
 
     return HttpResponseRedirect(reverse('index'))
+
+def deletepost(request, id):
+    ezabatzekopost = Post.objects.get(id = id) #izenburua pasatu eta bilatu izenburu hori duen objetua
+    Post.delete(ezabatzekopost) #ezabatu
+
+    return HttpResponseRedirect(reverse(index))
+
+def aldatu(request, id):
+    postaldatu = Post.objects.get(id = id) 
+    return render(request, 'update.html', {'posta': postaldatu})
+
+def aldatupost(request, id):
+
+        aldatzekopost = Post.objects.get(id = id) #izenburua pasatu eta bilatu izenburu hori duen objetua
+
+        iz = request.POST["izenburua"]
+        ed = request.POST["edukia"]
+
+        aldatzekopost.izenburua = iz
+        aldatzekopost.edukia = ed
+        aldatzekopost.save()
+        
+        return HttpResponseRedirect(reverse(index))
