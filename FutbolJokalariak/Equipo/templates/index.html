@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbol Equipos</title>
+    <link rel="stylesheet" href='{% static "css/Equipo.css" %}'>
+</head>
+<body>
+    <center><h1>Kaixo Django blog Futbol</h1></center>
+    <br><br>
+    <h3>Mostrar todos los equipos</h3>
+    <br><br>
+    <table align="center" border="1">
+        {% for equip in equipo %}
+        <tr>
+            <td>
+                <div>
+                    <p><h2>{{equip.nombre}}</h2></p>
+                    <p>{{equip.ciudad}}</p>
+                    <p>{{equip.presidente}}</p>                
+                </div>
+            </td>           
+        </tr>
+        {% endfor %}
+    </table>
+            
+
+    <br><br>
+    <br><br>
+
+
+</body>
+</html>

@@ -13,7 +13,7 @@ class Equipo(models.Model):
 class Jugador(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
-    dorsal = models.IntegerField(max_length=2)
+    dorsal = models.IntegerField()
 
     def __unicode__ (self):
         return self.nombre
