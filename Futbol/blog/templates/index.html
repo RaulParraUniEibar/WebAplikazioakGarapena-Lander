@@ -1,16 +1,6 @@
-{% load static %}
+    {% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nire Django Blog</title>
-    <link rel="stylesheet" href='{% static "css/blog.css" %}'>
-</head>
-<body>
-    <center><h1>Kaixo Django blog</h1></center>
-    <br><br>
+    {% block content %}
     <h3>Post guztiak bistaratu</h3>
     <br><br>
     <table align="center" border="1">
@@ -37,8 +27,4 @@
 
     <br><br>
     <a href = "/add">Gehitu Posta!</a>
-    <br><br>
-
-
-</body>
-</html>
+    {% endblock content %}

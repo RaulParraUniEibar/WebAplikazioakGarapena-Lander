@@ -18,3 +18,10 @@ class Jugador(models.Model):
     def __unicode__ (self):
         return self.nombre
     
+class Fichaje(models.Model):
+    temporada = models.CharField(max_length=20)
+    equipofichaje = models.ForeignKey(Equipo)
+    jugadorfichaje = models.ForeignKey(Jugador)
+
+    
+

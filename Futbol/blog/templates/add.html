@@ -1,15 +1,6 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nire Django Blog</title>
-    <link rel="stylesheet" href='{% static "css/blog.css" %}'>
-</head>
-<body>
-    <center><h1>Post bat gehitzeko ondorengo formulario bete</h1></center>
+    {% block content %}
     <br><br>
 
 
@@ -18,8 +9,4 @@
         Post-aren edukia: <input type="text" name="edukia">
         <button type = "submit" value="Submit">Post-a sortu</button>
     </form>
-
-
-
-</body>
-</html>
+    {% endblock content %}
