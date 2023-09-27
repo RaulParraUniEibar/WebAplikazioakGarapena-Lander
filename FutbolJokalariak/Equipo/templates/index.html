@@ -1,18 +1,12 @@
-{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futbol Equipos</title>
-    <link rel="stylesheet" href='{% static "css/Equipo.css" %}'>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <center><h1>Kaixo Django blog Futbol</h1></center>
     <br><br>
-    <h3>Mostrar todos los equipos</h3>
+    <h3 style="text-align: center;">Mostrar todos los equipos y jugadores</h3>
     <br><br>
+    <div style="float: left;">
     <table align="center" border="1">
         {% for equip in equipo %}
         <tr>
@@ -22,15 +16,42 @@
                     <p>{{equip.ciudad}}</p>
                     <p>{{equip.presidente}}</p>                
                 </div>
-            </td>           
+            </td>    
         </tr>
         {% endfor %}
+
+        
+
     </table>
-            
+    <br>          
+    <br>
+    <br>
+    <br>
+    </div>
 
+    <div style="text-align: center;">
+    <a href = "/add">Añadir Datos!</a>
+    </div>
+
+    <div style="float: right;">
+    <table align="center" border="1">
+    {% for jugad in jugador %}
+        <tr>
+            <td>
+                <div>
+                    <p><h3>{{jugad.nombre}}</h3></p>
+                    <p>{{jugad.apellido}}</p>
+                    <p>{{jugad.dorsal}}</p>                
+                </div>
+            </td>    
+        </tr>
+        {% endfor %}
+
+    </table>
+    <br>
+    <br>
+    </div>
     <br><br>
     <br><br>
 
-
-</body>
-</html>
+    {% endblock content %}

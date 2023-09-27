@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+    <br><br>
+
+    
+    <form action="addequipo/" method="POST">
+        {% csrf_token %}
+
+        Nombre del equipo: <input type="text" name="nombre">
+        Nombre de la ciudad: <input type="text" name="ciudad">
+        Nombre del presidente: <input type="text" name="presidente">
+        <button type = "submit" value="Submit">Crear equipo</button>
+    </form>
+    <br>
+    <br>
+    <form action="addjugador/" method="POST">
+        {% csrf_token %}
+        
+        Nombre del jugador: <input type="text" name="nombre">
+        Apellido del jugador: <input type="text" name="apellido">
+        Dorsal : <input type="text" name="dorsal">
+        <button type = "submit" value="Submit">Crear jugador</button>
+    </form>
+    {% endblock content %}
