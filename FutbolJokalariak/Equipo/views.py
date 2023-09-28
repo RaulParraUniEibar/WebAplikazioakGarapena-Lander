@@ -33,3 +33,34 @@ def addjugador(request):
     jugadornuevo.save()
 
     return HttpResponseRedirect(reverse('index'))
+
+def deleteequipo(request, id):
+    equipoeliminar = Equipo.objects.get(id = id) #pasar el equipo
+    Equipo.delete(equipoeliminar) #ezabatu
+
+    return HttpResponseRedirect(reverse(index))
+
+def deletejugador(request, id):
+    jugadoreliminar = Jugador.objects.get(id = id) #pasar el equipo
+    Jugador.delete(jugadoreliminar) #ezabatu
+
+    return HttpResponseRedirect(reverse(index))
+
+def updateequipo(request, id):
+    equipoUpdate = Equipo.objects.get(id = id)
+    return render(request,'update.html', {'equip':equipoUpdate})
+
+def editarequipo(request, id):
+
+    equipoeditar = Equipo.objects.get(id = id) #pasar el id del equipo
+
+    nombre = request.POST["nombre"]
+    ciudad = request.POST["ciudad"]
+    presidente = request.POST["presidente"]
+
+    equipoeditar.nombre = nombre
+    equipoeditar.ciudad = ciudad
+    equipoeditar.presidente = presidente
+    equipoeditar.save()
+       
+    return HttpResponseRedirect(reverse(index))

@@ -16,7 +16,13 @@
                     <p>{{equip.ciudad}}</p>
                     <p>{{equip.presidente}}</p>                
                 </div>
-            </td>    
+            </td>   
+            <td>
+                <a href="eliminarequipo/{{equip.id}}" color="red">Eliminar</a>
+            </td> 
+            <td>
+                <a href="updateequipo/{{equip.id}}" color="red">Editar</a>
+            </td> 
         </tr>
         {% endfor %}
 
@@ -43,7 +49,11 @@
                     <p>{{jugad.apellido}}</p>
                     <p>{{jugad.dorsal}}</p>                
                 </div>
-            </td>    
+            </td>   
+            <td>
+                <a href="eliminarjugador/{{jugad.id}}" color="red">Eliminar</a>
+            </td> 
+            
         </tr>
         {% endfor %}
 

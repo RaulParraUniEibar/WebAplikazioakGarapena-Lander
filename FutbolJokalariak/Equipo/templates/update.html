@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href='{%static "css/blog.css" %}'>
+    <title>Nuevos Datos</title>
+</head>
+<body>
+    <center><h1>Mete los nuevos datos</h1></center>
+    <br>
+
+    
+    <form action="/editarequipo/{{equip.id}}/" method="post">
+        {% csrf_token %}
+        Nombre del equipo: <input type="text" name="nombre" value="{{equip.nombre}} ">
+        Ciudad del equipo: <input type="text" name="ciudad" value="{{equip.ciudad}} ">
+        Presidente del equipo: <input type="text" name="presidente" value="{{equip.presidente}} ">
+        <button type = submit>Editar Equipo</button>
+    </form>
+    
+</body>
+</html>
