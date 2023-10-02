@@ -22,4 +22,23 @@
         Dorsal : <input type="text" name="dorsal">
         <button type = "submit" value="Submit">Crear jugador</button>
     </form>
+    <br>
+    <br>
+    <form action="addfichaje/" method="POST">
+        {% csrf_token %}
+        
+        Nombre del jugador: <select name="nombreju">
+            {% for jug in jugador %}
+            <option value="{{jug.id}}">{{jug.nombre}}</option>
+            {%endfor%}
+          </select>
+        Nombre del equipo: <select name="nombreeq">
+            {% for equip in equipo %}
+            <option value="{{equip.id}}">{{equip.nombre}}</option>
+            {%endfor%}
+          </select>
+        
+        Temporada : <input type="text" name="temporada">
+        <button type = "submit" value="Submit">Crear fichaje</button>
+    </form>
     {% endblock content %}

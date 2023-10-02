@@ -5,16 +5,20 @@ from django.urls import reverse
 # Create your views here.
 from .models import Equipo
 from .models import Jugador
+from .models import Fichaje
 # Create your views here.
 def index (request):
     equipos = Equipo.objects.all
     jugadores = Jugador.objects.all
-    return render(request, 'index.html', {'equipo':equipos, 'jugador':jugadores})
+    fichaje = Fichaje.objects.all
+    return render(request, 'index.html', {'equipo':equipos, 'jugador':jugadores,'fichaje':fichaje})
 
 
 
 def add(request):
-    return render(request,'add.html')
+    equipos = Equipo.objects.all
+    jugadores = Jugador.objects.all
+    return render(request,'add.html', {'equipo':equipos, 'jugador':jugadores})
 
 def addequipo(request):
     nombre = request.POST["nombre"]
@@ -34,6 +38,19 @@ def addjugador(request):
 
     return HttpResponseRedirect(reverse('index'))
 
+def addfichaje(request):
+    jugid = request.POST["nombreju"]
+    equipid = request.POST["nombreeq"]
+    temporada = request.POST["temporada"]
+
+    jug = Jugador.objects.get(id = jugid)
+    eq = Equipo.objects.get(id = equipid)
+
+    fichajenuevo = Fichaje(temporada=temporada, equipofichaje= eq, jugadorfichaje=jug)
+    fichajenuevo.save()
+
+    return HttpResponseRedirect(reverse('index'))
+
 def deleteequipo(request, id):
     equipoeliminar = Equipo.objects.get(id = id) #pasar el equipo
     Equipo.delete(equipoeliminar) #ezabatu
@@ -43,6 +60,12 @@ def deleteequipo(request, id):
 def deletejugador(request, id):
     jugadoreliminar = Jugador.objects.get(id = id) #pasar el equipo
     Jugador.delete(jugadoreliminar) #ezabatu
+
+    return HttpResponseRedirect(reverse(index))
+
+def deletefichaje(request, id):
+    fichajeeliminar = Fichaje.objects.get(id = id) #pasar el equipo
+    Jugador.delete(fichajeeliminar) #ezabatu
 
     return HttpResponseRedirect(reverse(index))
 

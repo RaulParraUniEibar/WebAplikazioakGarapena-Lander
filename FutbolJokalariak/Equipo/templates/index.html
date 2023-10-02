@@ -6,8 +6,12 @@
     <br><br>
     <h3 style="text-align: center;">Mostrar todos los equipos y jugadores</h3>
     <br><br>
-    <div style="float: left;">
-    <table align="center" border="1">
+    <div style="text-align: center;" >
+        <a href = "/add">Añadir Datos!</a>
+        </div>
+
+    <div >
+    <table  border="1">
         {% for equip in equipo %}
         <tr>
             <td>
@@ -35,12 +39,37 @@
     <br>
     </div>
 
-    <div style="text-align: center;">
-    <a href = "/add">Añadir Datos!</a>
+
+
+    <div >
+        <table  border="1">
+            FICHAJES POR TEMPORADAS
+        {% for fichaj in fichaje %}
+            <tr>
+                <td>
+                    <div>
+                        <p><h3>{{fichaj.temporada}}</h3></p>
+                        <p>Equipo: {{fichaj.equipofichaje.nombre}}</p>
+                        <p>Nombre: {{fichaj.jugadorfichaje.nombre}}</p>
+                        <p>Apellido: {{fichaj.jugadorfichaje.apellido}}</p>  
+                        <p>Dorsal:   {{fichaj.jugadorfichaje.dorsal}}</p>                    
+                    </div>
+                </td>   
+                <td>
+                    <a href="eliminarfichaje/{{fichaj.id}}" color="red">Eliminar</a>
+                </td> 
+                
+            </tr>
+    
+            
+            {% endfor %}
+    
+        </table>
+        <br><br>
     </div>
 
-    <div style="float: right;">
-    <table align="center" border="1">
+    <div >
+    <table  border="1">
     {% for jugad in jugador %}
         <tr>
             <td>
@@ -54,13 +83,15 @@
                 <a href="eliminarjugador/{{jugad.id}}" color="red">Eliminar</a>
             </td> 
             
-        </tr>
+        </tr>      
         {% endfor %}
 
     </table>
     <br>
     <br>
     </div>
+
+    
     <br><br>
     <br><br>
 

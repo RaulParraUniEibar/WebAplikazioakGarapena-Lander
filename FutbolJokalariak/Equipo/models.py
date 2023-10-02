@@ -18,12 +18,12 @@ class Jugador(models.Model):
     def __unicode__ (self):
         return self.nombre
     
-#class Fichaje(models.Model):
- #   temporada = models.CharField(max_length=20)
-  #  equipofichaje = models.ForeignKey(Equipo)
-   # jugadorfichaje = models.ForeignKey(Jugador)
+class Fichaje(models.Model):
+    temporada = models.CharField(max_length=20)
+    equipofichaje = models.ForeignKey(Equipo, on_delete= models.CASCADE)
+    jugadorfichaje = models.ForeignKey(Jugador, on_delete= models.CASCADE)
 
-    #def __unicode__ (self):
-     #   return self.jugadorfichaje
+    def __unicode__ (self):
+        return self.jugadorfichaje
     
 
