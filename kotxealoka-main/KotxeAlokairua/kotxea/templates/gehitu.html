@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+<div class="margin-top container">
+    <h1>Gehitu kotxea</h1>
+    <form action="gehituerregistroa/" method="post">
+      {% csrf_token %} <label class="form-label">Matrikula:</label>
+      <input type="text" name="matrikula" class="form-control" required/>
+      <br /><br />
+      <label class="form-label">Marka:</label>
+      <input type="text" name="marka" class="form-control" required/>
+      <br/><br/>
+      <label class="form-label">Prezioa:</label>
+      <input type="number" step="0.01" min="0" name="prezioa" class="form-control" required/>
+      <br/><br/>
+      <input class="btn btn-dark" type="submit" value="Submit" />
+    </form>
+  </div>
+</body>
+</html>
